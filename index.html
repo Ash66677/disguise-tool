@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>咫尺域 - 工作伪装工具</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="auth-container" class="auth-panel">
+        <div class="auth-card">
+          <h2>欢迎使用咫尺域</h2>
+          <div class="auth-tabs">
+            <button id="show-login" class="auth-tab active">登录</button>
+            <button id="show-register" class="auth-tab">注册</button>
+          </div>
+
+          <form id="login-form" class="auth-form">
+            <div class="form-group">
+              <label for="login-username">用户名</label>
+              <input id="login-username" type="text" placeholder="请输入用户名" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">密码</label>
+              <input id="login-password" type="password" placeholder="请输入密码" required />
+            </div>
+            <button type="submit" class="primary-btn">登录</button>
+          </form>
+
+          <form id="register-form" class="auth-form hidden">
+            <div class="form-group">
+              <label for="register-username">用户名</label>
+              <input id="register-username" type="text" placeholder="注册用户名" required />
+            </div>
+            <div class="form-group">
+              <label for="register-password">密码</label>
+              <input id="register-password" type="password" placeholder="注册密码" required />
+            </div>
+            <button type="submit" class="primary-btn">注册</button>
+          </form>
+
+          <div id="auth-message" class="auth-message"></div>
+        </div>
+      </div>
+
+      <div id="main-container" class="main-container" style="display: none;">
+        <header>
+          <h1>咫尺域</h1>
+          <div class="status">
+            <span id="status-text">监控中...</span>
+            <span id="timer">00:00:00</span>
+          </div>
+        </header>
+
+        <main class="main-content">
+          <div class="control-panel">
+            <button id="toggle-monitor" class="primary-btn">开启人脸监控</button>
+            <button id="disguise-btn" class="secondary-btn">立即伪装</button>
+            <button id="settings-btn" class="secondary-btn">设置</button>
+            <button id="logout-btn" class="secondary-btn hidden">退出登录</button>
+          </div>
+
+          <div class="camera-section" id="camera-section" style="display: none;">
+            <video id="camera-feed" autoplay muted></video>
+            <canvas id="face-canvas" style="display: none;"></canvas>
+            <div class="face-indicator">
+              <div id="face-status">未检测到人脸</div>
+            </div>
+          </div>
+
+          <div class="stats-section">
+            <div class="stat-item">
+              <span class="stat-label">今日摸鱼时间</span>
+              <span class="stat-value" id="today-time">0 分钟</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">检测到人脸次数</span>
+              <span class="stat-value" id="face-count">0 次</span>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
